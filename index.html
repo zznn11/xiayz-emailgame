@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#04070d">
+<title>执舰官的加密终端：代班审批</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <div id="auth-overlay">
+    <div class="auth-inner">
+      <div class="auth-icon" id="authIcon">◉</div>
+      <div class="auth-text" id="authText">虹膜验证中...</div>
+      <div class="auth-sub">X-02 · 执舰官专用终端</div>
+    </div>
+  </div>
+
+  <div id="status-bar">
+    <div class="sb-left">
+      <span class="sb-dot"></span>
+      <span class="sb-title">加密终端</span>
+    </div>
+    <div class="sb-user">执舰官 <b>夏以昼</b></div>
+    <div class="sb-right">
+      <span class="sb-signal"><i></i><i></i><i></i><i></i></span>
+      <span id="clock">09:50</span>
+    </div>
+  </div>
+
+  <div id="notif-banner" class="mail">
+    <div class="notif-icon" id="notifIcon">✉</div>
+    <div class="notif-text">
+      <small id="notifLabel">新邮件</small>
+      <span id="notifText">—</span>
+    </div>
+  </div>
+
+  <div id="alarm-banner">
+    <div class="alarm-banner-icon">⏰</div>
+    <div class="alarm-banner-text">
+      <small>紧急</small>
+      <span>A-7编队等待授权中</span>
+    </div>
+  </div>
+
+  <div id="content">
+    <section id="view-mail-list" class="view active">
+      <div class="nav-bar"><div class="nav-title">收件箱</div><div class="nav-sub" id="mailCount">0 封待处理</div></div>
+      <div id="mailListArea"></div>
+    </section>
+
+    <section id="view-mail-detail" class="view">
+      <div class="nav-bar"><button class="back-btn" id="mailBackBtn">‹</button><div class="nav-title">邮件详情</div></div>
+      <div id="mailDetailArea"></div>
+    </section>
+
+    <section id="view-contacts" class="view">
+      <div class="nav-bar"><div class="nav-title">通讯</div><div class="nav-sub">加密频道</div></div>
+      <div id="contactListArea"></div>
+    </section>
+
+    <section id="view-chat" class="view">
+      <div class="nav-bar"><button class="back-btn" id="chatBackBtn">‹</button><div class="nav-title" id="chatTitle">宝贝妹妹</div><div class="nav-sub" id="chatSub" style="color:#6ee7b7;">● 在线</div></div>
+      <div class="chat-body" id="chatBody"></div>
+      <div class="chat-reply-area" id="chatReplyArea"></div>
+    </section>
+
+    <section id="view-settings" class="view">
+      <div class="nav-bar"><div class="nav-title">设置</div></div>
+      <div class="settings-card">
+        <h3>终端信息</h3>
+        <div class="settings-row"><span class="k">设备型号</span><span class="v">X-02 · 执舰官专用</span></div>
+        <div class="settings-row"><span class="k">加密等级</span><span class="v">Ω / 最高</span></div>
+        <div class="settings-row"><span class="k">绑定执舰官</span><span class="v">夏以昼</span></div>
+      </div>
+      <div class="settings-card">
+        <h3>代理权限范围</h3>
+        <div class="settings-row"><span class="k">日常审批</span><span class="v" style="color:#6ee7b7;">✓ 已开启</span></div>
+        <div class="settings-row"><span class="k">作战审批</span><span class="v" style="color:#6ee7b7;">✓ 已开启</span></div>
+        <div class="settings-row"><span class="k">财务划拨</span><span class="v" style="color:#6ee7b7;">✓ 已开启</span></div>
+        <div class="settings-row"><span class="k">人事调动</span><span class="v" style="color:#6ee7b7;">✓ 已开启</span></div>
+      </div>
+      <div class="settings-note">* 所有操作记录将同步至执舰官本人。</div>
+    </section>
+
+    <section id="view-summary" class="view"></section>
+  </div>
+
+  <div id="call-overlay" class="hidden">
+    <div class="call-avatar">妹</div>
+    <div class="call-name">宝贝妹妹</div>
+    <div class="call-status" id="callStatus">通话中 · 00:00</div>
+    <div class="call-subtitle" id="callSubtitle"></div>
+    <button class="call-end-btn hidden" id="callEndBtn">结束通话</button>
+  </div>
+
+  <div id="dock">
+    <button class="dock-btn active" data-view="mail"><span class="dock-icon">✉</span><span class="dock-label">邮件</span><span class="badge hidden" id="badge-mail"></span></button>
+    <button class="dock-btn" data-view="contacts"><span class="dock-icon">◉</span><span class="dock-label">通讯</span><span class="badge hidden" id="badge-contacts"></span></button>
+    <button class="dock-btn" data-view="settings"><span class="dock-icon">⚙</span><span class="dock-label">设置</span></button>
+  </div>
+
+</div>
+
+<script src="./main.js"></script>
+</body>
+</html>
